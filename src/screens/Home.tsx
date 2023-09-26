@@ -1,13 +1,23 @@
-import {View, RefreshControl, StyleSheet} from 'react-native';
+import React from 'react';
+import { RefreshControl, StyleSheet} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Card from '../components/Card/Card';
 import {FlashList} from '@shopify/flash-list';
 //crear scroll infinito
 import {useInfiniteQuery} from '@tanstack/react-query';
-import { SafeAreaView } from 'react-native-safe-area-context';
+//import from search
+import {useNavigation} from '@react-navigation/native';
 
 const GET_ALL_URL = 'https://pokeapi.co/api/v2/pokemon';
 
 const Home = () => {
+  const navigation = useNavigation();
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLargeTitle: true,
+    })
+  }, [navigation]);
+
   //indicar la pagina de la cual nos devolcera los pokemones
   const getAllPokemons = async ({pageParam = 1}) => {
     //comillas invertidas para indicar logica

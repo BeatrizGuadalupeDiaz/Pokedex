@@ -31,7 +31,7 @@ const ButtonTab = () => {
             },
             tabBarActiveTintColor: '#F1C40F',
             tabBarInactiveTintColor: 'gray',
-            headerShown: false,
+            headerShown: true,
           })}>
           <Tab.Screen name="Home" component={Home} />
           <Tab.Screen name="Favorites" component={Favorites} />
